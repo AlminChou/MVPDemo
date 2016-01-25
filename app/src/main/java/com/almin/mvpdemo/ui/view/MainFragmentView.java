@@ -1,5 +1,6 @@
 package com.almin.mvpdemo.ui.view;
 
+import com.almin.mvpdemo.presenter.Presenter;
 import com.almin.mvpdemo.ui.BaseFragment;
 
 /**
@@ -9,7 +10,7 @@ public class MainFragmentView extends BaseFragment{
 
 
     @Override
-    public void init() {
-
+    public Presenter getCurrentPresenter() {
+        return null;
     }
 }

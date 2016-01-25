@@ -4,9 +4,12 @@ import com.almin.mvpdemo.Interactor.OnUsersFetchCallback;
 import com.almin.mvpdemo.Interactor.UserInteractor;
 import com.almin.mvpdemo.model.User;
 import com.almin.mvpdemo.provider.UserProvider;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Almin on 2016/1/24.
@@ -17,27 +20,38 @@ public class UserInteractorImpl implements UserInteractor{
 
     public UserInteractorImpl(OnUsersFetchCallback onUsersFetchCallback){
         mOnUsersFetchCallback = onUsersFetchCallback;
+        mProvider = new UserProvider();
     }
 
     @Override
     public void loadUsers(String username, String password) {
-//        mProvider
         // send request
+        mProvider.loadUsers(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                mOnUsersFetchCallback.onFetchError("please try.");
+            }
 
-        if(true){
-            mOnUsersFetchCallback.onFetchSuccess(new ArrayList<User>());
-        }else{
-            mOnUsersFetchCallback.onFetchError("please try.");
-        }
-
+            @Override
+            public void onResponse(Response response) throws IOException {
+                mOnUsersFetchCallback.onFetchSuccess(new ArrayList<User>());
+            }
+        });
 
     }
 
     @Override
     public void updateUserName(String name) {
+        mProvider.updateName(name, new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                mOnUsersFetchCallback.onFetchError("please try.");
+            }
 
-        if(true){
-            mOnUsersFetchCallback.onUserUpdate("update success");
-        }
+            @Override
+            public void onResponse(Response response) throws IOException {
+                mOnUsersFetchCallback.onUserUpdate("update success");
+            }
+        });
     }
 }

@@ -1,6 +1,7 @@
 package com.almin.mvpdemo.ui.view;
 
 import com.almin.mvpdemo.model.User;
+import com.almin.mvpdemo.presenter.Presenter;
 import com.almin.mvpdemo.ui.BaseView;
 
 import java.util.List;

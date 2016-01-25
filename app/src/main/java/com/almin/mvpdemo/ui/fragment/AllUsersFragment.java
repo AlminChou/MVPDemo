@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.almin.mvpdemo.R;
 import com.almin.mvpdemo.model.User;
+import com.almin.mvpdemo.presenter.Presenter;
 import com.almin.mvpdemo.presenter.impl.AllUsersPresenterImpl;
 import com.almin.mvpdemo.ui.BaseFragment;
 import com.almin.mvpdemo.ui.view.AllUsersView;
@@ -37,13 +38,10 @@ public class AllUsersFragment extends BaseFragment implements AllUsersView{
             }
         });
 
-        mPresenter.loadUsers("admin","123");
+        mPresenter.onCreate();
+
+//        mPresenter.loadUsers("admin","123");
         return rootView;
-    }
-
-    @Override
-    public void init() {
-
     }
 
     @Override
@@ -52,5 +50,8 @@ public class AllUsersFragment extends BaseFragment implements AllUsersView{
     }
 
 
-
+    @Override
+    public Presenter getCurrentPresenter() {
+        return mPresenter;
+    }
 }

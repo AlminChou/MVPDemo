@@ -22,7 +22,22 @@ public class AllUsersPresenterImpl implements AllUsersPresenter ,OnUsersFetchCal
     }
 
     @Override
+    public void onCreate() {
+        loadUsers("admin", "123");
+    }
+
+    @Override
     public void onResume() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public void onStop() {
 
     }
 

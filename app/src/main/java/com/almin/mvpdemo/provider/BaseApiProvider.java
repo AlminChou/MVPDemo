@@ -30,7 +30,7 @@ public class BaseApiProvider<T> {
 //
 //    public BaseApiProvider(Class<T> cls) {
 //        if (sRestAdapter == null) {
-//            final OkHttpClient okHttpClient = new OkHttpClient();
+//            final okHttpClient
 //            okHttpClient.setConnectTimeout(ShineConfiguration.getInstance().getConnectTimeout(), TimeUnit.SECONDS);
 //            RestAdapter.Builder build = new RestAdapter.Builder();
 //            ShineConfiguration configuration = ShineConfiguration.getInstance();

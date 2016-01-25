@@ -8,5 +8,4 @@ import com.almin.mvpdemo.ui.BaseView;
 public interface AllUsersPresenter extends Presenter {
     void loadUsers(String username,String password);
     void updateUserName(String name);
-
 }
