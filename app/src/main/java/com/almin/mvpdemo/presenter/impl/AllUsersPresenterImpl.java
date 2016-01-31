@@ -26,6 +26,18 @@ public class AllUsersPresenterImpl implements AllUsersPresenter ,OnUsersFetchCal
         loadUsers("admin", "123");
     }
 
+
+    // 日后配合dagger2 取代 上面构造函数初始化
+    @Override
+    public void attachView(AllUsersView view) {
+
+    }
+
+    @Override
+    public void detachView() {
+
+    }
+
     @Override
     public void onResume() {
 

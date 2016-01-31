@@ -3,29 +3,23 @@ package com.almin.mvpdemo.ui;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import com.almin.mvpdemo.presenter.Presenter;
+
 /**
  * Created by Almin on 2016/1/24.
  */
-public abstract class BaseFragment extends Fragment implements BaseView{
+public abstract class BaseFragment extends Fragment {
+    protected abstract Presenter getCurrentPresenter();
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getCurrentPresenter().onResume();
-    }
-
-    @Override
     public void showSpinner() {
 
     }
 
-    @Override
     public void hideSpinner() {
 
     }
 
-    @Override
     public void showToast(final String text) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -44,7 +38,12 @@ public abstract class BaseFragment extends Fragment implements BaseView{
     @Override
     public void onStop() {
         super.onStop();
-        getCurrentPresenter().onStop();
+       getCurrentPresenter().onStop();
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        getCurrentPresenter().detachView();
+    }
 }
