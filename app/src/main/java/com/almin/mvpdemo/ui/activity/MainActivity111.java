@@ -1,6 +1,5 @@
 package com.almin.mvpdemo.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,31 +12,28 @@ import android.view.View;
 
 import com.almin.mvpdemo.R;
 import com.almin.mvpdemo.ui.fragment.AllUsersFragment;
-import com.almin.mvpdemo.ui.fragment.VendorCategoryListFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity111 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent=new Intent();
-//                intent.setClass(MainActivity.this, MainActivity111.class);
-//                startActivity(intent);
-
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container_main, new VendorCategoryListFragment(), null);
+        fragmentTransaction.replace(R.id.container_main, new AllUsersFragment(), null);
         fragmentTransaction.addToBackStack("1111");
         fragmentTransaction.commitAllowingStateLoss();
         getSupportFragmentManager().executePendingTransactions();
@@ -58,24 +54,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onStop() {
-        Log.e("","MainActivity----------onStop-");
-        super.onStop();
-    }
-
-    @Override
-    protected void onStart() {
-        Log.e("","MainActivity----------onStart-");
-        super.onStart();
-    }
-
-    @Override
-    protected void onRestart() {
-        Log.e("","MainActivity----------onRestart-");
-        super.onRestart();
     }
 
     @Override

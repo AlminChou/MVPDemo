@@ -12,13 +12,14 @@ import com.squareup.okhttp.Request;
 public class UserProvider {
 
 
+
     public void loadUsers(Callback callback){
-        OkHttpClient mOkHttpClient = new OkHttpClient();
-        final Request request = new Request.Builder()
-                .url("https://www.baidu.com")
-                .build();
-        Call call = mOkHttpClient.newCall(request);
-        call.enqueue(callback);
+//        OkHttpClient mOkHttpClient = new OkHttpClient();
+//        final Request request = new Request.Builder()
+//                .url("https://www.baidu.com")
+//                .build();
+//        Call call = mOkHttpClient.newCall(request);
+//        call.enqueue(callback);
     }
 
     public void updateName(String name,Callback callback){
@@ -29,5 +30,7 @@ public class UserProvider {
         Call call = mOkHttpClient.newCall(request);
         call.enqueue(callback);
     }
+
+
 
 }

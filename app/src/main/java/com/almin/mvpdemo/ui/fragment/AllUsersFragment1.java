@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by Almin on 2016/1/24.
  */
-public class AllUsersFragment extends BaseFragment implements AllUsersView{
+public class AllUsersFragment1 extends BaseFragment implements AllUsersView{
     private AllUsersPresenterImpl mPresenter;
     private TextView mTvName;
 
@@ -67,15 +67,8 @@ public class AllUsersFragment extends BaseFragment implements AllUsersView{
     }
 
     @Override
-    public void onDestroyView() {
-        Log.e("", "AllUsersFragment--------onDestroyView");
-        super.onDestroyView();
-    }
-
-
-    @Override
     public void onDestroy() {
-        Log.e("", "AllUsersFragment--------onDestroy");
+
         super.onDestroy();
     }
 }

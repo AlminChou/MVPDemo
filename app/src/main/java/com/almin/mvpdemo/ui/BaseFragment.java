@@ -1,14 +1,16 @@
 package com.almin.mvpdemo.ui;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.widget.Toast;
 
 import com.almin.mvpdemo.presenter.Presenter;
+import com.almin.mvpdemo.provider.BaseDataProvider;
 
 /**
  * Created by Almin on 2016/1/24.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements BaseDataProvider.LoaderManagerHelper{
     protected abstract Presenter getCurrentPresenter();
 
 
@@ -45,5 +47,10 @@ public abstract class BaseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         getCurrentPresenter().detachView();
+    }
+
+    @Override
+    public LoaderManager getCurrentLoaderManager() {
+        return getLoaderManager();
     }
 }
